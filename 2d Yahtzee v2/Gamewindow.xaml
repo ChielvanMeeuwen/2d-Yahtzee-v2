@@ -1,0 +1,64 @@
+﻿<Window x:Class="_2d_Yahtzee_v2.Gamewindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2d_Yahtzee_v2"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="Gamewindow" Height="450" Width="800">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label x:Name="PlayerNameLabel" Height="50"  VerticalAlignment="Top" FontSize="22" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" BorderBrush="Black" Foreground="#FFD4CECE" >
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FF881D1D" Offset="0.5"/>
+                        <GradientStop Color="Black"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Image x:Name="BackgroundGameWindow" Source="pack://application:,,,/Images/Gamewindow background.jpg"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button x:Name="ExitGamewindowButton"  Height="30" Width="30" Click="ExitGamewindowButton_Click" Background="#FFB92525" BorderBrush="Black" BorderThickness="2">
+                <Button.Content>
+                    <Image Source="pack://application:,,,/Images/exit-icon-4599.png"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <Image x:Name="gifImage" Height="200" Width="300" />
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Label Height="40" Width="70" Content="Roll Dice" Foreground="white" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" x:Name="RollDiceLabel">
+            </Label>
+            <Button x:Name="RollDiceButton" Height="70" Width="70" Click="RollDiceButton_Click" BorderBrush="Black" BorderThickness="3" Background="#FF711E1E">
+                <Button.Content>
+                    <Image Source="pack://application:,,,/Images/dices.jpg" Opacity="0.6">
+
+                    </Image>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="left" VerticalAlignment="Center">
+            <StackPanel x:Name="DiceStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="120" Opacity="0.7"  >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF651E1E"/>
+                        <GradientStop Color="#FFEF5C5C" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+            <StackPanel x:Name="AttemptsCountPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="120" Opacity="0.7"  >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF651E1E"/>
+                        <GradientStop Color="#FFEF5C5C" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <TextBlock x:Name="AttemptsTextblock" FontFamily="Calibri" FontSize="22" FontWeight="Bold" TextAlignment="Center" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
