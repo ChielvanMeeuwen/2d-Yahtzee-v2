@@ -28,6 +28,7 @@ namespace _2d_Yahtzee_v2
         public Settings()
         {
             InitializeComponent();
+            mediaPlayer.Volume = 0.1;
             popUpLabel.Visibility = Visibility.Collapsed;
             highScoreLabel.Visibility = Visibility.Collapsed;
             TextBoxPlayerName.Text = ((App)Application.Current).SharedDataStore.playerName;
@@ -42,8 +43,7 @@ namespace _2d_Yahtzee_v2
             mediaPlayer.Open(new Uri(string.Format("{0}\\bosstime.wav", AppDomain.CurrentDomain.BaseDirectory)));
             if (((App)Application.Current).SharedDataStore.musicplay == true)
             {
-                mediaPlayer.Play(); 
-                mediaPlayer.Volume = 0.1;
+                mediaPlayer.Play();  
             }
             
         }      
@@ -124,7 +124,7 @@ namespace _2d_Yahtzee_v2
             {
                 ((App)Application.Current).SharedDataStore.musicplay = false;
                 Audiobutton.Content = "Music is off";
-                mediaPlayer.Stop(); 
+                mediaPlayer.Pause(); 
             }     
             else
             {

@@ -8,7 +8,7 @@
         Title="Settings" Height="450" Width="800" SizeToContent="Manual">
     <Grid>
         <Image Source="pack://application:,,,/Images/south-american-casinos.jpg" Stretch="Fill"/>
-        <Button x:Name="Audiobutton" Content="" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40" Click="Audiobutton_Click"/>
+        <Button x:Name="Audiobutton" Content="" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40" Click="Audiobutton_Click" FontWeight="Bold" FontFamily="Calibri" FontSize="18"/>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Right">
             <Button x:Name="HighScoreButton" Content="Highrolls" Width="150" Height="50"  FontWeight="Bold" FontFamily="Calibri" FontSize="18" Click="HighScoreButton_Click"/>
         </StackPanel>
