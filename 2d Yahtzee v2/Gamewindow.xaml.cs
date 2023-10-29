@@ -32,7 +32,8 @@ namespace _2d_Yahtzee_v2
         private DispatcherTimer timer = new DispatcherTimer();
         private int rollCount;  
         private DispatcherTimer timer2 = new DispatcherTimer();
-        private string PlayerName;       
+        private string PlayerName;
+        
         public Gamewindow()
         {
             InitializeComponent();
@@ -41,7 +42,11 @@ namespace _2d_Yahtzee_v2
             timer.Tick += Timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1);
             timer2.Tick += Timer2_Tick;
-            timer2.Interval = TimeSpan.FromSeconds(5);              
+            timer2.Interval = TimeSpan.FromSeconds(5);
+            
+
+            
+            
         }
         //timer2 laat 2e gif zien als 2dYahtzee is gegooid
         private void Timer2_Tick(object sender, EventArgs e)
@@ -55,9 +60,11 @@ namespace _2d_Yahtzee_v2
         }
         private void ExitGamewindowButton_Click(object sender, RoutedEventArgs e)
         {
+            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Hide(); 
+            
         }      
         private void RollDiceButton_Click(object sender, RoutedEventArgs e)
         {
@@ -158,5 +165,14 @@ namespace _2d_Yahtzee_v2
                 this.Hide();
             }
         }
+
+        private void stopMusic_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void startMusic_Click(object sender, RoutedEventArgs e)
+        {
+        }  
     }  
 }

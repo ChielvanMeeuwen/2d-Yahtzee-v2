@@ -202,5 +202,11 @@
   <ItemGroup>
     <Resource Include="Images\groenvinkje.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Music\2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" />
+    <Content Include="Music\2019-10-13_-_The_Biggest_Smile_-_David_Fesliyan.mp3" />
+    <Content Include="Music\Gamewindow backgroundmusic.wav" />
+    <Content Include="Music\menu music.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,7 @@
         Title="Gamewindow" Height="450" Width="800">
 
     <Grid>
+        <MediaElement x:Name="backgroundMusic" Source="pack://Application:,,,/Music/Gamewindow backgroundmusic.wav" LoadedBehavior="Manual" Volume="1"/>
         <StackPanel Orientation="Vertical">
             <Label x:Name="PlayerNameLabel" Height="50"  VerticalAlignment="Top" FontSize="22" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" BorderBrush="Black" Foreground="#FFD4CECE" >
                 <Label.Background>
@@ -59,6 +60,14 @@
                 </StackPanel.Background>
                 <TextBlock x:Name="AttemptsTextblock" FontFamily="Calibri" FontSize="22" FontWeight="Bold" TextAlignment="Center" Foreground="White"/>
             </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="startMusic" Height="50" Width="50" Content="Start" Margin="10" Click="startMusic_Click">
+                
+            </Button>
+            <Button x:Name="stopMusic" Height="50" Width="50" Content="Stop" Margin="10" Click="stopMusic_Click">
+                
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
