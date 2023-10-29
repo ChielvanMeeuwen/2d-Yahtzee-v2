@@ -22,7 +22,7 @@ namespace _2d_Yahtzee_v2
     public partial class Settings : Window
       
     {
-        
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         private string lastClickedButton = null;
         
         public Settings()
@@ -39,6 +39,13 @@ namespace _2d_Yahtzee_v2
             {
                 Audiobutton.Content = "Music is off"; 
             }
+            mediaPlayer.Open(new Uri(string.Format("{0}\\bosstime.wav", AppDomain.CurrentDomain.BaseDirectory)));
+            if (((App)Application.Current).SharedDataStore.musicplay == true)
+            {
+                mediaPlayer.Play(); 
+                mediaPlayer.Volume = 0.1;
+            }
+            
         }      
         private void ConfirmPlayerName_Click(object sender, RoutedEventArgs e)
         {         
@@ -48,7 +55,8 @@ namespace _2d_Yahtzee_v2
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();  
-            this.Hide();    
+            this.Hide();   
+            mediaPlayer.Stop(); 
         }
 
         private void ContolsButton_Click(object sender, RoutedEventArgs e)
@@ -116,11 +124,13 @@ namespace _2d_Yahtzee_v2
             {
                 ((App)Application.Current).SharedDataStore.musicplay = false;
                 Audiobutton.Content = "Music is off";
+                mediaPlayer.Stop(); 
             }     
             else
             {
                 ((App)Application.Current).SharedDataStore.musicplay = true;
                 Audiobutton.Content = "Music is on";
+                mediaPlayer.Play();
             }
         }
     }

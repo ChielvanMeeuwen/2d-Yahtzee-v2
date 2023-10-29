@@ -54,6 +54,7 @@ namespace _2d_Yahtzee_v2
             if (((App)Application.Current).SharedDataStore.musicplay == true)
             {
                 mediaPlayer.Play();
+                mediaPlayer.Volume = 0.1;
             }           
             mediaPlayer.MediaEnded += Media_Ended;
             mediaPlayer2.Open(new Uri(string.Format("{0}\\tadaa.wav", AppDomain.CurrentDomain.BaseDirectory)));
@@ -66,6 +67,7 @@ namespace _2d_Yahtzee_v2
             if (((App)Application.Current).SharedDataStore.musicplay == true) 
             {
                 mediaPlayer.Play();
+                mediaPlayer.Volume = 0.1;   
             }
             
         }
@@ -181,6 +183,7 @@ namespace _2d_Yahtzee_v2
                 if (((App)Application.Current).SharedDataStore.musicplay == true)
                 {
                     mediaPlayer2.Play();
+                    mediaPlayer2.Volume = 0.1;
                 }
                 if (media2ended == true) 
                 {
@@ -188,6 +191,7 @@ namespace _2d_Yahtzee_v2
                     if (((App)Application.Current).SharedDataStore.musicplay == true)
                     {
                         mediaPlayer3.Play();
+                        mediaPlayer3.Volume = 0.1;  
                     }
                 }
                 var backgroundimage = new BitmapImage();
