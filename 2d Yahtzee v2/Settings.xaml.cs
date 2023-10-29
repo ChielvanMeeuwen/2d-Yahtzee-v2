@@ -31,6 +31,14 @@ namespace _2d_Yahtzee_v2
             popUpLabel.Visibility = Visibility.Collapsed;
             highScoreLabel.Visibility = Visibility.Collapsed;
             TextBoxPlayerName.Text = ((App)Application.Current).SharedDataStore.playerName;
+            if (((App)Application.Current).SharedDataStore.musicplay == true)
+            {
+                Audiobutton.Content = "Music is on";
+            }
+            if (((App)Application.Current).SharedDataStore.musicplay == false)
+            {
+                Audiobutton.Content = "Music is off"; 
+            }
         }      
         private void ConfirmPlayerName_Click(object sender, RoutedEventArgs e)
         {         
@@ -98,6 +106,21 @@ namespace _2d_Yahtzee_v2
             else
             {
                 highScoreLabel.Visibility= Visibility.Collapsed;
+            }
+        }
+
+        private void Audiobutton_Click(object sender, RoutedEventArgs e)
+        {
+           
+            if (((App)Application.Current).SharedDataStore.musicplay == true)
+            {
+                ((App)Application.Current).SharedDataStore.musicplay = false;
+                Audiobutton.Content = "Music is off";
+            }     
+            else
+            {
+                ((App)Application.Current).SharedDataStore.musicplay = true;
+                Audiobutton.Content = "Music is on";
             }
         }
     }

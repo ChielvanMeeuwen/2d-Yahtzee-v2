@@ -15,6 +15,7 @@ namespace _2d_Yahtzee_v2
         public int diceButtonCount { get; set; }
         public bool highscore;
         public Dictionary<string, Int32> highScores = new Dictionary<string, Int32>();
+        public bool musicplay = true;
 
     }
 

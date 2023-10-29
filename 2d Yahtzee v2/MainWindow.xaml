@@ -39,10 +39,15 @@
                         </Button.Background>
                         <Button.Content>
                             <Image Source="pack://application:,,,/Images/settings-3110.png" Width="20" Height="20"/>
-                </Button.Content>
-            
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <TextBlock Text="Settings"/>
+                        </Button.ToolTip>
+ 
+       
 
-            </Button>
+
+                    </Button>
                     <Button x:Name="ExitProgramButton" Content="Exit Game" Height="50" Width="400" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ExitProgramButton_Click" BorderThickness="2" BorderBrush="Black" FontWeight="Bold" FontSize="16">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.6,0" StartPoint="0.0,0">

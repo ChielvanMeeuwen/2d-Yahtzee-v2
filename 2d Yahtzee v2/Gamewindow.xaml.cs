@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using WpfAnimatedGif;
 
+
 namespace _2d_Yahtzee_v2
 {
     /// <summary>
@@ -33,20 +34,45 @@ namespace _2d_Yahtzee_v2
         private int rollCount;  
         private DispatcherTimer timer2 = new DispatcherTimer();
         private string PlayerName;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+        private MediaPlayer mediaPlayer2 = new MediaPlayer();
+        private MediaPlayer mediaPlayer3 = new MediaPlayer();
+        private bool media2ended;
+       
         
         public Gamewindow()
         {
             InitializeComponent();
+            mediaPlayer.Stop();
             string playerName = ((App)Application.Current).SharedDataStore.playerName;
             PlayerNameLabel.Content = $"Hello, {playerName}!";
             timer.Tick += Timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1);
             timer2.Tick += Timer2_Tick;
             timer2.Interval = TimeSpan.FromSeconds(5);
+            mediaPlayer.Open(new Uri(string.Format("{0}\\Gamewindow backgroundmusic.wav", AppDomain.CurrentDomain.BaseDirectory)));
+            if (((App)Application.Current).SharedDataStore.musicplay == true)
+            {
+                mediaPlayer.Play();
+            }           
+            mediaPlayer.MediaEnded += Media_Ended;
+            mediaPlayer2.Open(new Uri(string.Format("{0}\\tadaa.wav", AppDomain.CurrentDomain.BaseDirectory)));
+            mediaPlayer2.MediaEnded += Media2_Ended; 
+            mediaPlayer3.Open(new Uri(string.Format("{0}\\crowdcheer.wav", AppDomain.CurrentDomain.BaseDirectory)));
+        }
+        private void Media_Ended(object sender, EventArgs e) 
+        {
+            mediaPlayer.Position = TimeSpan.Zero;
+            if (((App)Application.Current).SharedDataStore.musicplay == true) 
+            {
+                mediaPlayer.Play();
+            }
             
-
-            
-            
+        }
+        private void Media2_Ended(object sender, EventArgs e)
+        {
+            media2ended = true;
+            mediaPlayer2.Position = TimeSpan.Zero;
         }
         //timer2 laat 2e gif zien als 2dYahtzee is gegooid
         private void Timer2_Tick(object sender, EventArgs e)
@@ -64,6 +90,7 @@ namespace _2d_Yahtzee_v2
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Hide(); 
+            mediaPlayer.Stop(); 
             
         }      
         private void RollDiceButton_Click(object sender, RoutedEventArgs e)
@@ -101,7 +128,8 @@ namespace _2d_Yahtzee_v2
                 ImageBehavior.SetAnimatedSource(gifImage, image);
                 ImageBehavior.SetRepeatBehavior(gifImage, new System.Windows.Media.Animation.RepeatBehavior(5));
                 timer.Start();
-                timer2.Start();               
+                timer2.Start();   
+                
                 if (((App)Application.Current).SharedDataStore.highScores.ContainsKey(PlayerName))
                 {
                     int existingScore = ((App)Application.Current).SharedDataStore.highScores[PlayerName];
@@ -149,6 +177,19 @@ namespace _2d_Yahtzee_v2
         {
             if (backgroundRepetitionCount < 10)
             {
+                mediaPlayer.Stop();
+                if (((App)Application.Current).SharedDataStore.musicplay == true)
+                {
+                    mediaPlayer2.Play();
+                }
+                if (media2ended == true) 
+                {
+                    mediaPlayer2.Stop();
+                    if (((App)Application.Current).SharedDataStore.musicplay == true)
+                    {
+                        mediaPlayer3.Play();
+                    }
+                }
                 var backgroundimage = new BitmapImage();
                 backgroundimage.BeginInit();
                 backgroundimage.UriSource = new Uri("pack://application:,,,/Images/fireworks.gif");
@@ -158,21 +199,14 @@ namespace _2d_Yahtzee_v2
                 backgroundRepetitionCount++;
             }
             else
-            {
+            { 
                 timer.Stop();
                 WinnerWindow winnerWindow = new WinnerWindow();
                 winnerWindow.Show();
                 this.Hide();
             }
         }
+    }
 
-        private void stopMusic_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void startMusic_Click(object sender, RoutedEventArgs e)
-        {
-        }  
-    }  
+    
 }

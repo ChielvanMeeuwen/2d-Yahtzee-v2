@@ -20,26 +20,37 @@ namespace _2d_Yahtzee_v2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         public MainWindow()
         {
             InitializeComponent();
+            mediaPlayer.Open(new Uri(string.Format("{0}\\menu music.wav", AppDomain.CurrentDomain.BaseDirectory)));
+            if (((App)Application.Current).SharedDataStore.musicplay == true)
+            {
+                mediaPlayer.Play();
+            }
         }
         private void OpenSettingsButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            mediaPlayer.Stop();
             Settings settingsWindow = new Settings();
             settingsWindow.Show();
-            this.Hide();            
+            this.Hide();   
+            
         }
         private void ExitProgramButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             Application.Current.Shutdown();
+
         }
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
+            mediaPlayer.Stop();
             Gamewindow gameWindow = new Gamewindow();
             gameWindow.Show();
             this.Hide();
+             
         }
     }
 }
