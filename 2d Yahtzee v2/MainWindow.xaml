@@ -48,7 +48,7 @@
 
 
                     </Button>
-                    <Button x:Name="ExitProgramButton" Content="Exit Game" Height="50" Width="400" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ExitProgramButton_Click" BorderThickness="2" BorderBrush="Black" FontWeight="Bold" FontSize="16">
+                    <Button x:Name="ExitProgramButton" Content="Exit Game" Height="50" Width="400" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ExitProgramButton_Click" BorderThickness="2" BorderBrush="Black" FontWeight="Bold" FontSize="24">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.6,0" StartPoint="0.0,0">
                                 <GradientStop Color="#FFD8B614"/>
