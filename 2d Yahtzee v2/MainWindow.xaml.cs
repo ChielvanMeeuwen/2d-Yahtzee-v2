@@ -28,6 +28,7 @@ namespace _2d_Yahtzee_v2
             if (((App)Application.Current).SharedDataStore.musicplay == true)
             {
                 mediaPlayer.Play();
+                mediaPlayer.Volume = 0.1;
             }
         }
         private void OpenSettingsButton_Click(object sender, RoutedEventArgs e)
