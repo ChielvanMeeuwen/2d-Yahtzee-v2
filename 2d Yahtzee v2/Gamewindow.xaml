@@ -29,7 +29,7 @@
         </StackPanel>
         <Image x:Name="gifImage" Height="200" Width="300" />
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
-            <Label Height="40" Width="70" Content="Roll Dice" Foreground="white" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" x:Name="RollDiceLabel">
+            <Label Height="40" Width="70" Content="Roll Dice" Foreground="white" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" x:Name="RollDiceLabel" FontSize="14">
             </Label>
             <Button x:Name="RollDiceButton" Height="70" Width="70" Click="RollDiceButton_Click" BorderBrush="Black" BorderThickness="3" Background="#FF711E1E">
                 <Button.Content>
