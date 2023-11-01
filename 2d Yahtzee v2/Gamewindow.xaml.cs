@@ -138,6 +138,7 @@ namespace _2d_Yahtzee_v2
                     if (rollCount < existingScore)
                     {                       
                         ((App)Application.Current).SharedDataStore.highScores[PlayerName] = rollCount;
+                        ((App)Application.Current).SharedDataStore.highscore = true;
                     }
                    
                 }
